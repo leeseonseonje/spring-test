@@ -9,7 +9,7 @@ public class Developer {
 
     private final BackEndFramework backEndFramework;
 
-    public void develop() {
-        backEndFramework.crud();
+    public String develop() {
+        return backEndFramework.crud();
     }
 }
