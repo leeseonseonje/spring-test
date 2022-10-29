@@ -38,7 +38,7 @@ class MemberRepositoryTest {
 
     @BeforeEach
     void init() {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 120; i++) {
             Member member = Member.of("memberA", 25);
             memberRepository.save(member);
         }
@@ -49,7 +49,7 @@ class MemberRepositoryTest {
     @Test
     @DisplayName("Spring Data jpa로 페이징 처리")
     void springDataJapPageable() {
-        PageRequest pageable = PageRequest.of(0, 10);
+        PageRequest pageable = PageRequest.of(2, 10);
         Page<Member> members = memberRepository.findMembers(pageable);
         System.out.println(members.getContent().size());
         System.out.println(members.getTotalElements());
