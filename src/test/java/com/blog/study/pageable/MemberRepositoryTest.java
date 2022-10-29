@@ -1,31 +1,37 @@
 package com.blog.study.pageable;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.*;
 
 @DataJpaTest
 class MemberRepositoryTest {
 
-    @Autowired
-    MemberRepository memberRepository;
+    @TestConfiguration
+    static class TestQueryFactory {
+
+        @Autowired
+        EntityManager em;
+
+        @Bean
+        public JPAQueryFactory queryFactory() {
+            return new JPAQueryFactory(em);
+        }
+    }
 
     @Autowired
-    MemberRepositoryQuerydsl memberRepositoryQuerydsl;
+    MemberRepository memberRepository;
 
     @Autowired
     EntityManager em;
@@ -51,11 +57,5 @@ class MemberRepositoryTest {
         System.out.println(members.getSize());
         System.out.println(members.getNumber());
         System.out.println(members.getNumberOfElements());
-    }
-
-    @Test
-    void t() {
-        List<Member> members = memberRepositoryQuerydsl.saveMembers();
-        System.out.println("members.size() = " + members.size());
     }
 }

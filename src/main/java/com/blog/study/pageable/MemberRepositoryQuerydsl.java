@@ -13,7 +13,6 @@ public class MemberRepositoryQuerydsl {
     private final JPAQueryFactory queryFactory;
 
     public List<Member> saveMembers() {
-
         return queryFactory
                 .selectFrom(QMember.member)
                 .fetch();
