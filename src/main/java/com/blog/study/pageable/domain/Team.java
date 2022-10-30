@@ -1,4 +1,4 @@
-package com.blog.study.pageable;
+package com.blog.study.pageable.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,11 @@ public class Team {
 
     private String name;
 
-    public Team(String name) {
+    private Team(String name) {
         this.name = name;
+    }
+
+    public static Team of(String name) {
+        return new Team(name);
     }
 }

@@ -1,5 +1,6 @@
 package com.blog.study.pageable;
 
+import com.blog.study.pageable.domain.Member;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
@@ -10,6 +11,10 @@ public interface MemberRepository extends JpaRepository<Member, Long>, MemberRep
 
 
     @EntityGraph(attributePaths = {"team"})
-    @Query("select m from Member m")
+    @Query(value = "select m from Member m")
     Page<Member> findMembers(Pageable pageable);
+
+    @Query(value = "select m from Member m join fetch m.team",
+            countQuery = "select count(m) from Member m join m.team")
+    Page<Member> findTeamInMembers(Pageable pageable);
 }

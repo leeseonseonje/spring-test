@@ -1,8 +1,10 @@
 package com.blog.study.pageable;
 
-import java.util.List;
+import com.blog.study.pageable.domain.Member;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface MemberRepositoryCustom {
 
-    List<Member> m();
+    Page<Member> members(Pageable pageable);
 }
