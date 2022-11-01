@@ -85,9 +85,9 @@ class MemberRepositoryTest {
     void spring_data_jpa_paging_fetchJoin() {
         PageRequest pageable = PageRequest.of(0, 10, Sort.by(DESC, "id"));
         Page<MemberDto> members = memberRepository.findTeamInMembers(pageable);
-//        assertThat(members.getSize()).isEqualTo(10);
-//        assertThat(members.getTotalElements()).isEqualTo(60);
-//        assertThat(members.getTotalPages()).isEqualTo(6);
+        assertThat(members.getSize()).isEqualTo(10);
+        assertThat(members.getTotalElements()).isEqualTo(60);
+        assertThat(members.getTotalPages()).isEqualTo(6);
     }
 
     @Test
