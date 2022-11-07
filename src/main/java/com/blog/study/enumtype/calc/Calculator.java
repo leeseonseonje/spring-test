@@ -1,4 +1,4 @@
-package com.blog.study.enumtype;
+package com.blog.study.enumtype.calc;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
