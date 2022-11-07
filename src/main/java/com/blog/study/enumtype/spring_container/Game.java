@@ -20,7 +20,7 @@ public enum Game {
 
     private Client client;
 
-    private static Map<String, Game> games = Arrays.stream(values())
+    private static final Map<String, Game> games = Arrays.stream(values())
             .collect(Collectors.toMap(g -> g.name, Function.identity()));
 
     private static Game getGame(String gameName) {
