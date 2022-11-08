@@ -1,5 +1,8 @@
 package com.blog.study.datajpatest;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ItemSearchImpl implements ItemSearch {
 
     @Override
