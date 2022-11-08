@@ -10,12 +10,12 @@ import org.springframework.data.jpa.repository.Query;
 public interface MemberRepository extends JpaRepository<Member, Long>, MemberRepositoryCustom {
 
     @EntityGraph(attributePaths = {"team"})
-    @Query("select m from Member m where m.username = :memberName")
+    @Query("select m from Book m where m.username = :memberName")
     Page<Member> findMembers(String memberName, Pageable pageable);
 
 
     @Query(value = "select new com.blog.study.pageable.MemberDto(m.id, t.id)" +
-            " from Member m join m.team t")
+            " from Book m join m.team t")
     Page<MemberDto> findTeamInMembers(Pageable pageable);
 
 }
