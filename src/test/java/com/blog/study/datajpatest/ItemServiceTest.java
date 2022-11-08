@@ -1,15 +1,11 @@
 package com.blog.study.datajpatest;
 
-import com.blog.study.pageable.JpaQueryFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.Import;
 
 import static org.assertj.core.api.Assertions.*;
 
-@DataJpaTest
-@Import(JpaQueryFactory.class)
+@DataJpaQueryFactoryTest
 class ItemServiceTest {
 
     static class ItemSearchMock implements ItemSearch {
