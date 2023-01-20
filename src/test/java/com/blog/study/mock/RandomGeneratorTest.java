@@ -27,5 +27,6 @@ class RandomGeneratorTest {
             return bound;
         }
     }
-
 }
+
+//mock
