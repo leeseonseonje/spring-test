@@ -1,4 +1,4 @@
-package com.blog.study.mock;
+package com.blog.study.test_double;
 
 import org.springframework.stereotype.Component;
 

@@ -1,6 +1,4 @@
-package com.blog.study.mock;
-
-import java.util.concurrent.ThreadLocalRandom;
+package com.blog.study.test_double;
 
 public class RandomBox {
 
